@@ -1,0 +1,79 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin -->
+    <id>tech.codemajesty.ai-file-format</id>
+
+    <!-- Plugin name -->
+    <name>AI File Format Generator</name>
+
+    <!-- Vendor information -->
+    <vendor email="office@codemajesty.tech" url="https://codemajesty.tech">Code Majesty Tech LLC</vendor>
+
+    <!-- Plugin description -->
+    <description><![CDATA[
+        <h2>AI-Ready Code Documentation Generator</h2>
+
+        <p>Transform your code into AI-friendly documentation formats with a single click. This plugin helps developers create
+        well-structured documentation that's perfect for AI model training, code analysis, and documentation purposes.</p>
+
+        <h3>Key Features:</h3>
+        <ul>
+            <li><b>Multiple Output Formats:</b> Generate documentation in Markdown, HTML, or Plain Text formats</li>
+            <li><b>Smart Comment Handling:</b> Option to include or remove comments from the generated output</li>
+            <li><b>Recursive Directory Support:</b> Process entire directories and their subdirectories</li>
+            <li><b>Relative Path Support:</b> Maintains project structure with relative paths</li>
+            <li><b>Syntax Highlighting:</b> Beautiful code highlighting in HTML output</li>
+        </ul>
+
+        <h3>Usage:</h3>
+        <ol>
+            <li>Right-click on any file or folder in the Project view</li>
+            <li>Select "Generate AI Format"</li>
+            <li>Choose your preferred output format and options</li>
+            <li>Click OK to generate the documentation</li>
+        </ol>
+
+        <h3>Perfect for:</h3>
+        <ul>
+            <li>Creating training data for AI models</li>
+            <li>Documenting code segments for analysis</li>
+            <li>Sharing code snippets with context</li>
+            <li>Generating documentation for code reviews</li>
+            <li>Creating formatted code archives</li>
+        </ul>
+
+        <hr>
+        <p><small>This plugin is distributed under the MIT License. See our repository for full license details.</small></p>
+    ]]></description>
+
+    <!-- Change notes for the latest version -->
+    <change-notes><![CDATA[
+        <h3>1.0.0</h3>
+        <ul>
+            <li>Initial release</li>
+            <li>Support for Markdown, HTML, and Plain Text output formats</li>
+            <li>Comment removal functionality</li>
+            <li>Recursive directory processing</li>
+            <li>Relative path support</li>
+        </ul>
+    ]]></change-notes>
+
+    <!-- IDE compatibility -->
+    <idea-version since-build="231"/>
+
+    <!-- Product and plugin compatibility requirements -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Plugin's extensions -->
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <action id="tech.codemajesty.aifileformat.GenerateAIFormat"
+                class="tech.codemajesty.aifileformat.actions.MyCustomAction"
+                text="Generate AI Format"
+                description="Generate AI-friendly documentation from selected files and folders">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

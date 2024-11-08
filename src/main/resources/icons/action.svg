@@ -1,0 +1,13 @@
+﻿<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="16" height="16" rx="3" fill="#389FD6"/>
+
+    <!-- Document Lines -->
+    <rect x="3" y="3" width="10" height="1" rx="0.5" fill="white"/>
+    <rect x="3" y="12" width="10" height="1" rx="0.5" fill="white"/>
+    <rect x="3" y="7.5" width="10" height="1" rx="0.5" fill="white" fill-opacity="0.6"/>
+    <rect x="3" y="9.5" width="7" height="1" rx="0.5" fill="white" fill-opacity="0.6"/>
+
+    <!-- AI Symbol -->
+    <path d="M4.5 5L5.5 5L6 7.5L6.5 5L7.5 5L6.5 10L5.5 10L4.5 5Z" fill="white"/>
+</svg>
