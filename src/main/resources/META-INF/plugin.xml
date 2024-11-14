@@ -48,13 +48,9 @@
 
     <!-- Change notes for the latest version -->
     <change-notes><![CDATA[
-        <h3>1.0.0</h3>
+        <h3>1.0.1</h3>
         <ul>
-            <li>Initial release</li>
-            <li>Support for Markdown, HTML, and Plain Text output formats</li>
-            <li>Comment removal functionality</li>
-            <li>Recursive directory processing</li>
-            <li>Relative path support</li>
+            <li>Fixed support for all future updates of IDEs</li>
         </ul>
     ]]></change-notes>
 
