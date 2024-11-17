@@ -1,11 +1,11 @@
-﻿package tech.codemajesty.aifileformat.actions
+﻿// MyCustomAction.kt
+package tech.codemajesty.aifileformat.actions
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.command.WriteCommandAction
-import com.intellij.openapi.editor.EditorFactory
-import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
@@ -15,6 +15,8 @@ import tech.codemajesty.aifileformat.dialog.OutputFormat
 import tech.codemajesty.aifileformat.dialog.RemoveCommentsDialog
 
 class MyCustomAction : AnAction() {
+    // Add this method to specify the update thread
+    override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
 
     override fun actionPerformed(e: AnActionEvent) {
         val project = e.project
@@ -23,7 +25,7 @@ class MyCustomAction : AnAction() {
         if (project != null && selectedItems.isNotEmpty()) {
             val dialog = RemoveCommentsDialog(project, selectedItems)
 
-            if (dialog.showAndGet()) {  // true if user clicked OK
+            if (dialog.showAndGet()) {
                 val removeComments = dialog.isRemoveCommentsSelected()
                 val filesToProcess = dialog.getSelectedFiles()
                 val format = dialog.getSelectedFormat()
@@ -58,7 +60,7 @@ class MyCustomAction : AnAction() {
     }
 
     private fun removeComments(content: String, fileExtension: String?): String {
-        return when (fileExtension?.toLowerCase()) {
+        return when (fileExtension?.lowercase()) {
             "java", "kt", "kotlin", "js", "ts", "tsx", "cpp", "c", "cs" -> {
                 content.replace(Regex("/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"), "")
                     .replace(Regex("//.*"), "")
@@ -88,9 +90,6 @@ class MyCustomAction : AnAction() {
 
     private fun createNewFile(project: Project, content: String, extension: String) {
         val virtualFile = LightVirtualFile("generated-files-${System.currentTimeMillis()}.$extension", content)
-        val document = FileDocumentManager.getInstance().getDocument(virtualFile)
-            ?: EditorFactory.getInstance().createDocument(content)
-
         WriteCommandAction.runWriteCommandAction(project) {
             FileEditorManager.getInstance(project).openFile(virtualFile, true)
         }
