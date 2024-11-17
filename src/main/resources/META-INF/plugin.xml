@@ -1,15 +1,11 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <!-- Unique identifier of the plugin -->
     <id>tech.codemajesty.ai-file-format</id>
 
-    <!-- Plugin name -->
     <name>AI File Format Generator</name>
 
-    <!-- Vendor information -->
     <vendor email="office@codemajesty.tech" url="https://codemajesty.tech">Code Majesty Tech LLC</vendor>
 
-    <!-- Plugin description -->
     <description><![CDATA[
         <h2>AI-Ready Code Documentation Generator</h2>
 
@@ -46,24 +42,19 @@
         <p><small>This plugin is distributed under the MIT License. See our repository for full license details.</small></p>
     ]]></description>
 
-    <!-- Change notes for the latest version -->
     <change-notes><![CDATA[
-        <h3>1.0.1</h3>
+        <h3>1.1.0</h3>
         <ul>
-            <li>Fixed support for all future updates of IDEs</li>
+            <li>Updated gradle version and fixed issues with newer releases</li>
         </ul>
     ]]></change-notes>
 
-    <!-- IDE compatibility -->
     <idea-version since-build="231"/>
 
-    <!-- Product and plugin compatibility requirements -->
     <depends>com.intellij.modules.platform</depends>
 
-    <!-- Plugin's extensions -->
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
-
     <actions>
         <action id="tech.codemajesty.aifileformat.GenerateAIFormat"
                 class="tech.codemajesty.aifileformat.actions.MyCustomAction"
